@@ -57,7 +57,7 @@ void main() {
 			printf("\nRetransmission for Packet%c recieved.",buffer[1]);
 			printf("\nSending Packet %c",buffer[1]);
 
-			itoa(atoi(&buffer[1]), buffer);
+			strcpy(buffer,buffer[1]);
 			send(clientsocket, buffer, 100, 0);
 			current_window = atoi(&buffer[0]) + 1;
 		}
