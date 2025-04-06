@@ -45,8 +45,8 @@ void main() {
 
 
 		recvfrom(clientsocket, &fr_recv,sizeof(Frame), 0, (struct sockaddr*)&serveraddr, &len);
-		if(fr_recv.ack == 1) {
-			printf("\nAcknowledgement recieved for frame %d.\n",fr_recv.frame_id);
+		if(fr_recv.fram_id == current_frame+1) {
+			printf("\nAcknowledgement recieved for frame %d.\n",(fr_recv.frame_id)-1);
 			current_frame++;
 		}
 		else {
