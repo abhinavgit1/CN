@@ -43,8 +43,7 @@ void main() {
 		if(fr_recv.frame_id == expected_frame) {
 			printf("\nRecieved Frame %d.\nData: %s",fr_recv.frame_id, fr_recv.data);
 
-			fr_send.frame_id = expected_frame;
-			fr_send.ack = 1;
+			fr_send.frame_id = expected_frame+1;
 			sendto(serversocket, &fr_send, sizeof(Frame), 0, (struct sockaddr*)&clientaddr, sizeof(clientaddr));
 			printf("\nAcknowledgement sent.\n");
 
